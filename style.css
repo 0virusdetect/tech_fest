@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+div,h1,h2,h3,h4,h5,h6,p,ul,li,p{
+margin: 0;
+padding: 0;
+}
+a{
+color: white;
+text-decoration: none;
+}
+li{
+list-style-type: none;
+}
+body{
+font-family: "Inter", serif;
+}
+
+
+/* nav links start  */
+.my_nav{
+    display: flex;
+    justify-content: space-around; /* Aligns title and the check button */
+    background-color: rgb(41, 40, 40);
+    padding: 20px 0;
+    align-items: center;
+    position: relative; /* Ensures the label and input align properly */
+}
+
+.title{
+    display: flex;
+    align-items: center;
+}
+
+.links{
+    display: flex;
+}
+
+.links li {
+    margin: 0 10px;
+}
+
+
+
+#check:not(:checked) + label:before {
+    font-family: "FontAwesome";
+    content: "\f0c9"; /* Hamburger icon */
+    font-size: 15px;
+    color: white;
+}
+
+#check:checked + label:before {
+    font-family: "FontAwesome";
+    content: "\f00d"; /* Close icon */
+    font-size: 15px;
+    color: white;
+}
+
+#check,
+.checkbutton {
+display: none;
+}
+@media (max-width: 991.98px) {
+    .my_nav {
+        justify-content: space-between;
+        padding: 20px 20px;
+    }
+    .title{margin-left: 20px;}
+    .checkbutton {
+        display: block;
+        position: absolute;
+        left: 9px;
+        line-height: 28px;
+        text-align: center;
+        color: wheat;
+        margin-left: 10px; /* Adds space between the title and the button */
+    }
+    .links {
+        height: 100%;
+        width: 70%;
+        text-align: left;
+        flex-direction: column;
+        position: fixed;
+        top: 64px;
+        left: -100%;
+        background-color: rgb(0, 0, 0);
+        transition: all ease 0.9s;
+        z-index: 100;
+    }
+    .links li{
+        margin: 7px 18px;
+    }
+
+    #check:checked ~ .links {
+        left: 0%;
+    }
+}
+
+/* nav links end  */
+
+
+/* main content styling start here  */
+.main {
+    min-height: calc(100vh - 44px);
+    background-color: #169;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Needed for pseudo-element positioning */
+}
+
+.main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(./img/tech.jpg);
+    background-size: cover; /* Ensures the background image covers the area */
+    background-position: center; /* Centers the image */
+    opacity: 0.3; /* Adjust opacity for the image */
+    z-index: 1; /* Makes sure the image stays behind the content */
+}
+
+.main_content {
+    background-color: rgb(240, 232, 232);
+    padding: 20px;
+    min-height: 80vh;
+    width: 80vw;
+    opacity: .9; /* Ensure full opacity for content */
+    position: relative; /* Allows stacking with z-index */
+    z-index: 2; /* Ensures it stays on top of the background */
+}
+@media (max-width: 991.98px) {
+    .main_content {
+        min-height: 100vh;
+        min-width: 100vw;
+    }
+}
+/* main content styling end here  */
+
+
+/* body content start here */
+.my_body{
+    min-height: 100vh;
+}
+
+/* guest start here  */
+.guest{
+    padding: 20px;
+    background-color: #a6cdf0;
+}
+/* guest start here  */
+/* body content end here */
+
+/* footer css start  */
+.my_footer{
+    background-color: aliceblue;
+}
+/* footer css end */
