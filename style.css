@@ -165,7 +165,14 @@ justify-content: center;
 align-items: center;
 position: relative; /* Needed for pseudo-element positioning */
 }
+.images{
+text-align: center;
+}
 
+.images img{
+text-align: center;
+height: 120px;
+}
 .main::before {
 content: '';
 position: absolute;
@@ -191,29 +198,29 @@ opacity: .8; /* Ensure full opacity for content */
 position: relative; /* Allows stacking with z-index */
 z-index: 2; /* Ensures it stays on top of the background */
 }
-.main_content p{
+.main_content h6{
 text-align: center;
 }
-.main_content p:nth-child(1){
+.csjmu{
 color: red;
 font-size: 50px;
 }
-.main_content p:nth-child(2){
+.fku{
 font-size: 17px;
 }
-.main_content p:nth-child(3){
+.acbn{
 color: rgb(0, 81, 255);
 font-size: 25px;
 }
-.main_content p:nth-child(4){
+.sof{
 color: rgb(143, 41, 16);
 font-size: 20px;
 }
-.main_content p:nth-child(5){
+.doc{
 color: rgb(252, 77, 130);
 font-size: 20px;
 }
-.main_content p:nth-child(6){
+.pres{
 font-size: 15px;
 }
 .tech_fest img{
@@ -228,7 +235,7 @@ min-width: 100vw;
 .tech_fest img{
 height: 300px;
 }
-.chs{
+.csjmu{
 font-size: 27px!important;
 }
 }
