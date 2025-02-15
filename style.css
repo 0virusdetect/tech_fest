@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Orelega+One&display=swap');
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+div,h1,h2,h3,h4,h5,h6,p,ul,li,p{
+margin: 0;
+padding: 0;
+}
+a{
+color: white;
+text-decoration: none;
+}
+li{
+list-style-type: none;
+}
+.red{
+border: 1px solid black;
+}
+body{
+font-family: "Orelega One", serif;
+/* font-family: "Atkinson Hyperlegible Next", serif; */
+}
+/* bottom button styling start  */
+.bottom_button a {
+border: 1px solid black;
+background-color: black;
+padding: 3px 9px;
+border-radius: 4px;
+position: fixed;
+bottom: 20px;
+right: 20px;
+cursor: pointer;
+z-index: 9;
+}
+.bottom_button a img {
+height: 13px;
+width: 12px;
+filter: invert(95%) sepia(100%) saturate(0%) hue-rotate(150deg) brightness(106%) contrast(105%);
+}
+.bottom_button a:hover {
+background-color: rgb(36, 34, 34);
+}
+/* bottom button styling end  */
+
+/* nav links start  */
+.my_nav{
+display: flex;
+top: 0;
+left: 0;
+position: sticky;
+z-index: 999;
+justify-content: space-around; /* Aligns title and the check button */
+background-color: #071015;
+padding: 15px 0;
+align-items: center;
+width: 100%;
+font-size: 22px;
+}
+
+.title{
+display: flex;
+align-items: center;
+}
+.title a{
+text-transform: uppercase;
+font-size: 30px;
+text-shadow: -2px 0 rgb(255, 94, 0), 0 1px blue, 1px 0 blue, 0 -1px blue;
+font-weight: bold;
+font-family: 'Courier New', Courier, monospace;
+color: #D6E7EF;
+letter-spacing: 2px;
+}
+.links{
+display: flex;
+}
+
+.links li {
+margin: 0 10px;
+position: relative;
+}
+.links li:after {
+background: none repeat scroll 0 0 transparent;
+bottom: 0;
+content: "";
+display: block;
+height: 2px;
+left: 50%;
+position: absolute;
+background: #fff;
+transition: width 0.3s ease 0s, left 0.3s ease 0s;
+width: 0;
+}
+.links li:hover:after {
+width: 100%;
+left: 0;
+}
+
+.registration li a{
+color: wheat;
+padding: 6px 8px;
+text-transform: uppercase;
+transition: all ease 0.4s;
+border: 1px solid wheat;
+}
+.registration li a:hover{
+color: rgb(173, 169, 169);
+}
+#check:not(:checked) + label:before {
+font-family: "FontAwesome";
+content: "\f0c9"; /* Hamburger icon */
+font-size: 15px;
+color: white;
+}
+
+#check:checked + label:before {
+font-family: "FontAwesome";
+content: "\f00d"; /* Close icon */
+font-size: 15px;
+color: white;
+}
+
+#check,
+.checkbutton {
+display: none;
+}
+@media (max-width: 991.98px) {
+.title a{
+text-transform: uppercase;
+font-size: 20px;
+}
+.my_nav {
+justify-content: space-between;
+padding: 20px 20px;
+}
+.title{margin-left: 20px;}
+.checkbutton {
+display: block;
+position: absolute;
+left: 9px;
+line-height: 28px;
+text-align: center;
+color: wheat;
+margin-left: 10px; /* Adds space between the title and the button */
+}
+.links {
+height: 100%;
+width: 70%;
+text-align: left;
+flex-direction: column;
+position: fixed;
+top: 64px;
+left: -100%;
+background-color: rgb(0, 0, 0);
+transition: all ease 0.9s;
+z-index: 100;
+}
+.links li{
+margin: 7px 18px;
+}
+
+#check:checked ~ .links {
+left: 0%;
+}
+}
+
+/* nav links end  */
+
+
+/* main content styling start here  */
+.main {
+min-height: calc(100vh - 64px);
+background-color: #169;
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative; /* Needed for pseudo-element positioning */
+}
+.images{
+text-align: center;
+}
+
+.images img{
+text-align: center;
+height: 120px;
+}
+.main::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+background-attachment: fixed;
+bottom: 0;
+background-image: url(./img/tech1.jpg);
+background-size: cover; /* Ensures the background image covers the area */
+background-position: center; /* Centers the image */
+opacity: 0.6; /* Adjust opacity for the image */
+z-index: 1; /* Makes sure the image stays behind the content */
+}
+
+.main_content {
+background-color: #ffffff;
+margin: 40px 0;
+padding: 20px;
+min-height: 80vh;
+width: 90vw;
+opacity: .8; /* Ensure full opacity for content */
+position: relative; /* Allows stacking with z-index */
+z-index: 2; /* Ensures it stays on top of the background */
+}
+.main_content h6{
+text-align: center;
+}
+.csjmu{
+color: red;
+font-size: 50px;
+}
+.fku{
+font-size: 17px;
+}
+.acbn{
+color: rgb(0, 81, 255);
+font-size: 25px;
+}
+.sof{
+color: rgb(143, 41, 16);
+font-size: 20px;
+}
+.doc{
+color: rgb(252, 77, 130);
+font-size: 20px;
+}
+.pres{
+font-size: 15px;
+}
+.tech_fest img{
+height: 600px;
+}
+
+@media (max-width: 991.98px) {
+.main_content {
+min-height: 100vh;
+min-width: 100vw;
+}
+.tech_fest img{
+height: 300px;
+}
+.csjmu{
+font-size: 27px!important;
+}
+}
+/* main content styling end here  */
+
+/* sponsers styling starts here  */
+.sponsers{
+padding: 40px 0;
+}
+.sponser_content{
+min-height: 70vh;
+border: 2px solid rgb(226, 224, 224);
+border-radius: 8px;
+padding: 20px;
+margin: 20px 0;
+margin-bottom: 10px;
+}
+.sponser_image{
+
+position: relative;
+height: 100px;
+border-radius: 4px;
+}
+.image_color1{
+background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+.image_color2{
+background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+}
+.sponser_content img{
+border-radius: 50%;
+border: 2px solid white;
+padding: 4px;
+height: 150px;
+position: relative;
+top: 30px;
+}
+.sponser_con{
+margin-top: 100px;
+}
+.sponser_content p{
+text-align: justify;
+}
+.sponser_content a{
+color: black;
+text-decoration: underline;
+}
+/* sponsers styling ends here  */
+
+/* body content start here */
+.my_body{
+min-height: 100vh;
+}
+.guest {
+padding: 20px;
+border: 1px solid rgb(214, 210, 210);
+border-radius: 8px;
+background-size: 100%;
+background-image: url(./img/bg_guest.jpg);
+margin: 20px 0;
+}
+
+.profile {
+padding: 10px 0;
+border-radius: 8px;
+background-color: rgba(255, 255, 255, 0.5); /* Use rgba for opacity */
+}
+
+.profile_photo img {
+padding: 10px 0;
+height: 200px;
+border-radius: 50%;
+}
+
+.profile_photo {
+opacity: 1; /* Keep opacity at 1 for this element */
+}
+
+.profile_content {
+opacity: 1; /* Keep opacity at 1 for this element */
+}
+
+/* body content end here */
+
+/* footer css start  */
+.my_footer{
+color: white;
+background-color: black;
+padding: 10px 0;
+}
+.my_footer a{
+color: white;
+}
+/* footer css end */
+
+
+.contest{
+min-height: calc(100vh - 44px);
+}
+
+
+/* styling for Contest starts here */
+.contest_title{
+text-align: center;
+}
+.contest_cards{
+border: 1px solid rgb(216, 211, 211);
+padding: 10px;
+margin: 10px 0;
+}
+.contest_cards:hover{
+border: 1px solid rgba(#255ccc, 1);
+box-shadow: 0 15px 20px rgba(0,0,0,.05), 0 0 5px rgba(0,0,0,.1);
+cursor: pointer;
+}
+.contest_cards img{
+height: 250px;
+width: 100%;
+padding: 10px;
+}
+.contest_cards p{
+text-align: justify;
+}
+.btn{
+background-color: #1d3557;
+}
+
+/* styling for Contest ends here */
+
+/* styling for take contest start here  */
+.t_c{
+min-height: calc(100vh - 74px);
+}
+.take_contest h3{
+text-align: center;
+margin: 10px 0;
+}
+.t_c_content{
+border: 1px solid rgb(206, 204, 204);
+padding:50px 30px 30px 30px;
+border-radius: 20px;
+position: relative;
+transition: all ease .3s;
+cursor: pointer;
+}
+.t_c_content:hover{
+border: 1px solid rgba(#F2F4F8, 0);
+box-shadow: 0 15px 20px rgba(0,0,0,.05), 0 0 5px rgba(0,0,0,.1);
+cursor: pointer;
+}
+.t_c_content:hover .my_tag{
+background-color: rgb(135, 135, 243);
+}
+.my_tag{
+position: absolute;
+top: 0px;
+left: 20px;
+color: white;
+background-color: rgb(0, 0, 0);
+padding: 10px 10px;
+}
+.t_c_l p{
+text-align: justify;
+font-size: 18px;
+}
+.t_c_r{
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+height: 100%;
+}
+
+.t_c_r a{
+color: black;
+transition: all ease-in-out .4s;
+border: 1px solid rgb(184, 179, 179);
+padding: 8px 12px;
+border-radius: 6px;
+transition: all ease-in-out .5s;
+}
+.t_c_r a:hover{
+border-color: #000000;
+color: rgb(46, 45, 45);
+}
+@media (max-width: 991.98px) {
+.t_c_r{
+margin-top: 20px;
+}
+}
+/* styling for take contest emds here  */
+
+/* styling for about starts here */
+.about_cards{
+border: 1px solid rgb(192, 192, 192);
+border-radius: 8px;
+padding: 20px;
+text-align: center;
+}
+.about_cards:hover{
+border: 1px solid rgb(164, 187, 250);
+box-shadow: 0 15px 20px rgba(0,0,0,.05), 0 0 5px rgba(0,0,0,.1);
+cursor: pointer;
+}
+.about_image img{
+border-radius: 50%;
+height: 200px;
+width: 200px;
+}
+.about_content h6{
+font-size: 18px;
+margin-top: 10px;
+}
+.about_content p{
+font-size: 16px;
+}
+/* styling for about ends here */
