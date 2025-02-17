@@ -74,7 +74,40 @@
 </div>
 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
 <div class="t_c_r">
-    <a href="./">Coming Soon</a>
+
+<button disabled onclick="openPopup()">Coming Soon</button>
+<div class="overlay" id="overlay" onclick="closePopup()"></div>
+<div class="popup col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6" id="popup">
+<h3>Ctrl + Quiz</h3>
+<div class="form-group my-3 text-start">
+<label for="email" class="my-2">Enter your Enrollment Number</label>
+<input required type="text" id="enrollmentInput" placeholder="Enter your Enrollment Number" class="form-control">
+</div>
+
+<button onclick="checkEnrollment()">Check</button>
+<p id="result"></p>
+<button onclick="closePopup()">Close</button>
+</div>
+<script>
+const enrollmentNumbers = ["12345", "67890", "54321", "98765"];
+function openPopup() {
+document.getElementById("popup").style.display = "block";
+document.getElementById("overlay").style.display = "block";
+}
+function closePopup() {
+document.getElementById("popup").style.display = "none";
+document.getElementById("overlay").style.display = "none";
+}
+function checkEnrollment() {
+const input = document.getElementById("enrollmentInput").value;
+const result = document.getElementById("result");
+if (enrollmentNumbers.includes(input)) {
+result.innerHTML = `✅ Enrollment found! <br> <br> <a href='#'>Click here</a>`;
+} else {
+result.innerHTML = "❌ Enrollment not found.";
+}
+}
+</script>
 </div>
 
 </div>
@@ -97,7 +130,40 @@
 </div>
 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
 <div class="t_c_r">
-<a href="./">Coming Soon</a>
+<button disabled onclick="openPopup_2()">Coming Soon</button>
+<div class="overlay" id="overlay_2" onclick="closePopup_2()"></div>
+<div class="popup col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6" id="popup_2">
+<h3>Web Explorers</h3>
+<div class="form-group my-3 text-start">
+<label for="email" class="my-2">Enter your Enrollment Number</label>
+<input required type="text" id="enrollmentInput_2" placeholder="Enter your Enrollment Number" class="form-control">
+</div>
+
+<button onclick="checkEnrollment_2()">Check</button>
+<p id="result_2"></p>
+<button onclick="closePopup_2()">Close</button>
+</div>
+<script>
+const enrollmentNumbers2 = ["12345", "67890", "54321", "98765"];
+function openPopup_2() {
+document.getElementById("popup_2").style.display = "block";
+document.getElementById("overlay_2").style.display = "block";
+}
+function closePopup_2() {
+document.getElementById("popup_2").style.display = "none";
+document.getElementById("overlay_2").style.display = "none";
+}
+function checkEnrollment_2() {
+const input = document.getElementById("enrollmentInput_2").value;
+const result = document.getElementById("result_2");
+if (enrollmentNumbers2.includes(input)) {
+result.innerHTML = `✅ Enrollment found! <br> <br> <a href='#'>Click here</a>`;
+} else {
+result.innerHTML = "❌ Enrollment not found.";
+}
+}
+</script>
+
 </div>
 
 </div>
