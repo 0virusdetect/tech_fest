@@ -75,191 +75,199 @@
 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
 <div class="t_c_r">
 
-  <button  onclick="openPopup()">Coming Soon</button>
+<button  onclick="openPopup()">Coming Soon</button>
 <div class="overlay" id="overlay" onclick="closePopup()"></div>
 <div class="popup col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6" id="popup">
-  <h3>Ctrl + Quiz</h3>
+<h3>Ctrl + Quiz</h3>
 
-  <div class="form-group my-3 text-start">
-    <label for="name" class="my-2">Enter your Name</label>
-    <input required type="text" id="nameInput" placeholder="Enter your Name" autocomplete="off" class="form-control">
-  </div>
+<div class="form-group my-3 text-start">
+<label for="name" class="my-2">Enter your Name</label>
+<input required type="text" id="nameInput" placeholder="Enter your Name" autocomplete="off" class="form-control">
+</div>
 
-  <div class="form-group my-3 text-start">
-    <label for="email" class="my-2">Enter your Enrollment Number</label>
-    <input required type="text" id="enrollmentInput" placeholder="Enter your Enrollment Number" autocomplete="off" class="form-control">
-  </div>
+<div class="form-group my-3 text-start">
+<label for="email" class="my-2">Enter your Enrollment Number</label>
+<input required type="text" id="enrollmentInput" placeholder="Enter your Enrollment Number" autocomplete="off" class="form-control">
+</div>
 
-  <button onclick="checkDetails()">Submit</button>
-  <p id="result"></p>
-  <button onclick="closePopup()">Close</button>
+<button onclick="checkDetails()">Submit</button>
+<p id="result"></p>
+<button onclick="closePopup()">Close</button>
 </div>
 
 <script>
-  const studentData = [
-    { name: "Pulkit garg", enrollment: "CSJMA24000001150" },
-  { name: "Naveen Chandra", enrollment: "CSJMA24000001141" },
-  { name: "MO SHEEBU", enrollment: "CSJMA24000001141" },
-  { name: "Laxmi", enrollment: "csjma23000000580" },
-  { name: "Anuneet gupta", enrollment: "CSJMA2400001055" },
-  { name: "Angel Sharma", enrollment: "CSJMA24000010161" },
-  { name: "Utkarsh saxena", enrollment: "Csjma24000001270" },
-  { name: "Nitin yadav", enrollment: "CSJMA24000003920" },
-  { name: "Yash mishra", enrollment: "CSJMA24000001292" },
-  { name: "Aman Pandey", enrollment: "Csjma23000000467" },
-  { name: "Madhav", enrollment: "Hbhhh" },
-  { name: "Kavisha Gupta", enrollment: "CSJMA23000000570" },
-  { name: "Akash Tiwari", enrollment: "CSJMA23000000462" },
-  { name: "Abhilash Tiwari", enrollment: "CSJMA23000000436" },
-  { name: "Abhishek Verma", enrollment: "CSJMA17000560754" },
-  { name: "Anuj kushwaha", enrollment: "CSJMA21001936732" },
-  { name: "Satyam Chauhan", enrollment: "CSJMA21001937120" },
-  { name: "Alok Kumar Pal", enrollment: "CSJMA23000000466" },
-  { name: "Ruchi Singh", enrollment: "CSJMA20001302747" },
-  { name: "Akash vishvakarma", enrollment: "CSJMA23000000463" },
-  { name: "Richa Singh", enrollment: "CSJMA21000425065" },
-  { name: "Shraddha Srivastava", enrollment: "CSJMA23000000685" },
-  { name: "Sakshi trivedi", enrollment: "CSJMA23000000658" },
-  { name: "Shreya Dixit", enrollment: "CSJMA23000000687" },
-  { name: "Harsh Kumar", enrollment: "30712389559" },
-  { name: "Aditya Maurya", enrollment: "CSJMA21001584880" },
-  { name: "Ritesh bharti", enrollment: "Csjma22000024464" },
-  { name: "Ajeet Yadav", enrollment: "CSJMA21000076590" },
-  { name: "Aditya Singh", enrollment: "CSJMA21000076526" },
-  { name: "Abhishek Shukla", enrollment: "CSJMA23000000447" },
-  { name: "Vaibhavi Bajpai", enrollment: "CSJMA23000000741" },
-  { name: "Sandeep Dixit", enrollment: "CSJMA23000000660" },
-  { name: "Srashti Gupta", enrollment: "CSJMA23000000709" },
-  { name: "Ainul Nabi", enrollment: "CSJMA17000560349" },
-  { name: "Hiba Ilyas", enrollment: "CSJMA23000000558" },
-  { name: "Himanshi shukla", enrollment: "CSJMA23000000559" },
-  { name: "Ayush Gupta", enrollment: "CSJMA22000013141" },
-  { name: "Sakshi gupta", enrollment: "CSJMA23000000657" },
-  { name: "Sandli prajapati", enrollment: "CSJMA23000000662" },
-  { name: "Sameer Pal", enrollment: "CSJMA23000000659" },
-  { name: "Ayush Singh Bhadauria", enrollment: "CSJMA23000000529" },
-  { name: "Arpit kumar", enrollment: "CSJMA23000000509" },
-  { name: "Bhumi Karan", enrollment: "CSJMA23000000533" },
-  { name: "Durvesh kumar", enrollment: "CSJMA23000000548" },
-  { name: "Harsh Yadav", enrollment: "csjma23000000555" },
-  { name: "Ashish Pandey", enrollment: "CSJMA23000000521" },
-  { name: "Saurabh Kumar", enrollment: "CSJMA24000001224" },
-  { name: "Pratiksha Dubey", enrollment: "3.42061E+14" },
-  { name: "Shreyanshu sonkar", enrollment: "CSJMA24000001239" },
-  { name: "Abhishek kanoujia", enrollment: "CSJMA21001936436" },
-  { name: "Ankit Sharma", enrollment: "CSJMA2300000484" },
-  { name: "Sakshi Sharma", enrollment: "CSJMA24000001213" },
-  { name: "Sarthak Srivastava", enrollment: "CSJMA24000001222" },
-  { name: "Aruhi dwivedi", enrollment: "Csjma23000000516" },
-  { name: "Ismriti shukla", enrollment: "CSJMA23000000563" },
-  { name: "Arpita Srivastava", enrollment: "CSJMA23000000515" },
-  { name: "Jayakriti", enrollment: "CSJMA23000000564" },
-  { name: "Ayushi shukla", enrollment: "CSJMA23000000532" },
-  { name: "Anamika", enrollment: "CSJMA23000000474" },
-  { name: "Anshika Dixit", enrollment: "CSJMA23000000496" },
-  { name: "Anjali Gautam", enrollment: "CSJMA23000000479" },
-  { name: "Anshika Sahu", enrollment: "CSJMA23000000494" },
-  { name: "Pranshu", enrollment: "CSJMA24000001177" },
-  { name: "Suhani", enrollment: "CSJMA23000000711" },
-  { name: "Anshu kumar", enrollment: "CSJMA23000000497" },
-  { name: "Pratiksha Dubey", enrollment: "CSJMA24000003881" },
-  { name: "Abhishek Pal", enrollment: "csjma23000000445" },
-  { name: "Harshita Vishwakarma", enrollment: "CSJMA23000000557" },
-  { name: "Vaishnavi Gupta", enrollment: "CSJMA24000001276" },
-  { name: "Anubhav Dixit", enrollment: "CSJMA19001303094" },
-  { name: "Yashita verma", enrollment: "CSJM24000001297" },
-  { name: "SUYASH", enrollment: "CSJMA24000003884" },
-  { name: "Dipali verma", enrollment: "CSJMA23000000542" },
-  { name: "Ayan Ansari", enrollment: "CSJMA23000000528" },
-  { name: "Anurag Dwivedi", enrollment: "csjma23000000501" },
-  { name: "Pooja Prajapati", enrollment: "24000001164" },
-  { name: "Prabhjot kaur", enrollment: "CSJMA24000001169" },
-  { name: "Neeraj Kumar", enrollment: "CSJMA 24000001151" },
-  { name: "Tanush Srivastava", enrollment: "CSJMA21000167145" },
-  { name: "Krishna kushwaha", enrollment: "CSJMA24000001131" },
-  { name: "Richa Singh", enrollment: "CSJMA20001302745" },
-  { name: "Prachi singh", enrollment: "CSJMA24000001171" },
-  { name: "Ayushi Singh", enrollment: "CSJMA24000003889" },
-  { name: "Jaya soni", enrollment: "CSJMA24000003888" },
-  { name: "Khushi Srivastava", enrollment: "CSJMU240000023" },
-  { name: "Aviral Katheria", enrollment: "CSJMA24000001067" },
-  { name: "Nitin kumar", enrollment: "CSJMU24000003883" },
-  { name: "Anshika Gupta", enrollment: "24000001044" },
-  { name: "Anshika Pal", enrollment: "CSJMA24000001045" },
-  { name: "Isha", enrollment: "CSJMA24000001106" },
-  { name: "Ayushi katiyar", enrollment: "csjma24000001076" },
-  { name: "Isha", enrollment: "CSJMA24000001107" },
-  { name: "Avni tiwari", enrollment: "CSJMA24000001068" },
-  { name: "Ayushi devi", enrollment: "CSJMA24000001075" },
-  { name: "Kartikay dubey", enrollment: "CSJMA24000001116" },
-  { name: "Vanshika bajpai", enrollment: "CSJMA24000001280" },
-  { name: "YASHIKA MISHRA", enrollment: "24000001296" },
-  { name: "Khushi Gupta", enrollment: "CSJMA24000001120" },
-  { name: "Komal yadav", enrollment: "CSJMA24000001126" },
-  { name: "Vansh Gupta", enrollment: "CSJMA24000003989" },
-  { name: "Vishal Kumar", enrollment: "CSJMA24000003879" },
-  { name: "Kirti gupta", enrollment: "Csjma24000001125" },
-  { name: "Pawani Tripathi", enrollment: "CSJMA24000003907" },
-  { name: "Mohammad Shanwaj", enrollment: "CSJMA24000001143" },
-  { name: "Pragati tiwari", enrollment: "CSJMA24000001174" },
-  { name: "Mohit Sharma", enrollment: "CSJMA24000003991" },
-  { name: "Anu", enrollment: "CSJMA23000000499" },
-  { name: "Pinky kamal", enrollment: "Csjmu240000001639" },
-  { name: "Arpit kumar", enrollment: "CSJMA24000001061" },
-  { name: "Mohit Sharma", enrollment: "CSJMA24000001144" },
-  { name: "Meenu", enrollment: "CSJMA24000001139" },
-  { name: "Ayush Trivedi", enrollment: "CSJMA24000001073" },
-  { name: "Prachi Savita", enrollment: "CSJMA24000001173" },
-  { name: "Pinky kamal", enrollment: "CSJMA24000001639" },
-  { name: "Simran kumari", enrollment: "CSJMA24000001244" },
-  { name: "Keshav Dixit", enrollment: "CSJMA24000001118" },
-  { name: "Naman Mishra", enrollment: "CSJMA24000001148" },
-  { name: "Vaidehi shukla", enrollment: "CSJMA24000001275" },
-  { name: "Neeraj Sharma", enrollment: "Csjma24116000187" },
-  { name: "Anurag Tiwari", enrollment: "CSJMA24000001059" },
-  { name: "Tuba Mariyam", enrollment: "CSJMA24000003874" },
-  { name: "Ankit Rajput", enrollment: "CSJMA23000000483" },
-  { name: "Yogendra Kumar", enrollment: "CSJMA24000003876" },
-  { name: "Yashi bajpai", enrollment: "CSJMA24000003896" },
-  { name: "Palak Chaudhary", enrollment: "CSJMA24000003878" },
-  { name: "Aman Pandey", enrollment: "Csjma23000000467" },
-  { name: "Devisha Patel", enrollment: "CSJMA24000003871" },
-  { name: "Imran", enrollment: "CSJMA24000001105" },
-  { name: "Huma parveen", enrollment: "CSJMA24000001103" },
-  { name: "Arpita shukla", enrollment: "23000000514" },
-  { name: "Mahima trivedi", enrollment: "CSJMA24000001136" },
-  { name: "Mahima pal", enrollment: "CSJMA24000001137" }
-  ];
+const studentData = [
+{ name: "Pulkit Garg", enrollment: "CSJMA23000000637" },
+{ name: "Naveen Chandra", enrollment: "CSJMA24000001150" },
+{ name: "MO SHEEBU", enrollment: "CSJMA24000001141" },
+{ name: "Laxmi", enrollment: "csjma23000000580" },
+{ name: "Anuneet Gupta", enrollment: "CSJMA2400001055" },
+{ name: "Angel Sharma", enrollment: "CSJMA24000010161" },
+{ name: "Utkarsh Saxena", enrollment: "Csjma24000001270" },
+{ name: "Nitin Yadav", enrollment: "CSJMA24000003920" },
+{ name: "Yash Mishra", enrollment: "CSJMA24000001292" },
+{ name: "Aman Pandey", enrollment: "Csjma23000000467" },
+{ name: "Madhav", enrollment: "Hbhhh" },
+{ name: "Kavisha Gupta", enrollment: "CSJMA23000000570" },
+{ name: "Akash Tiwari", enrollment: "CSJMA23000000462" },
+{ name: "Abhilash Tiwari", enrollment: "CSJMA23000000436" },
+{ name: "Abhishek Verma", enrollment: "CSJMA17000560754" },
+{ name: "Anuj Kushwaha", enrollment: "CSJMA21001936732" },
+{ name: "Satyam Chauhan", enrollment: "CSJMA21001937120" },
+{ name: "Alok Kumar Pal", enrollment: "CSJMA23000000466" },
+{ name: "Ruchi Singh", enrollment: "CSJMA20001302747" },
+{ name: "Akash Vishvakarma", enrollment: "CSJMA23000000463" },
+{ name: "Richa Singh", enrollment: "CSJMA21000425065" },
+{ name: "Shraddha Srivastava", enrollment: "CSJMA23000000685" },
+{ name: "Sakshi Trivedi", enrollment: "CSJMA23000000658" },
+{ name: "Shreya Dixit", enrollment: "CSJMA23000000687" },
+{ name: "Harsh Kumar", enrollment: "csjma23000000553" },
+{ name: "Aditya Maurya", enrollment: "CSJMA21001584880" },
+{ name: "Ritesh Bharti", enrollment: "Csjma22000024464" },
+{ name: "Ajeet Yadav", enrollment: "CSJMA21000076590" },
+{ name: "Aditya Singh", enrollment: "CSJMA21000076526" },
+{ name: "Abhishek Shukla", enrollment: "CSJMA23000000447" },
+{ name: "Vaibhavi Bajpai", enrollment: "CSJMA23000000741" },
+{ name: "Sandeep Dixit", enrollment: "CSJMA23000000660" },
+{ name: "Srashti Gupta", enrollment: "CSJMA23000000709" },
+{ name: "Ainul Nabi", enrollment: "CSJMA17000560349" },
+{ name: "Hiba Ilyas", enrollment: "CSJMA23000000558" },
+{ name: "Himanshi Shukla", enrollment: "CSJMA23000000559" },
+{ name: "Ayush Gupta", enrollment: "CSJMA22000013141" },
+{ name: "Sakshi Gupta", enrollment: "CSJMA23000000657" },
+{ name: "Sandli Prajapati", enrollment: "CSJMA23000000662" },
+{ name: "Sameer Pal", enrollment: "CSJMA23000000659" },
+{ name: "Ayush Singh Bhadauria", enrollment: "CSJMA23000000529" },
+{ name: "Arpit Kumar", enrollment: "CSJMA23000000509" },
+{ name: "Bhumi Karan", enrollment: "CSJMA23000000533" },
+{ name: "Durvesh Kumar", enrollment: "CSJMA23000000548" },
+{ name: "Harsh Yadav", enrollment: "csjma23000000555" },
+{ name: "Ashish Pandey", enrollment: "CSJMA23000000521" },
+{ name: "Saurabh Kumar", enrollment: "CSJMA24000001224" },
+{ name: "Pratiksha Dubey", enrollment: "342060502402355" },
+{ name: "Shreyanshu Sonkar", enrollment: "CSJMA24000001239" },
+{ name: "Abhishek Kanoujia", enrollment: "CSJMA21001936436" },
+{ name: "Ankit Sharma", enrollment: "CSJMA2300000484" },
+{ name: "Sakshi Sharma", enrollment: "CSJMA24000001213" },
+{ name: "Sarthak Srivastava", enrollment: "CSJMA24000001222" },
+{ name: "Aruhi Dwivedi", enrollment: "Csjma23000000516" },
+{ name: "Ismriti Shukla", enrollment: "CSJMA23000000563" },
+{ name: "Arpita Srivastava", enrollment: "CSJMA23000000515" },
+{ name: "Jayakriti", enrollment: "CSJMA23000000564" },
+{ name: "Ayushi Shukla", enrollment: "CSJMA23000000532" },
+{ name: "Anamika", enrollment: "CSJMA23000000474" },
+{ name: "Anshika Dixit", enrollment: "CSJMA23000000496" },
+{ name: "Anjali Gautam", enrollment: "CSJMA23000000479" },
+{ name: "Anshika Sahu", enrollment: "CSJMA23000000494" },
+{ name: "Pranshu", enrollment: "CSJMA24000001177" },
+{ name: "Suhani", enrollment: "CSJMA23000000711" },
+{ name: "Anshu Kumar", enrollment: "CSJMA23000000497" },
+{ name: "Pratiksha Dubey", enrollment: "CSJMA24000003881" },
+{ name: "Abhishek Pal", enrollment: "csjma23000000445" },
+{ name: "Harshita Vishwakarma", enrollment: "CSJMA23000000557" },
+{ name: "Vaishnavi Gupta", enrollment: "CSJMA24000001276" },
+{ name: "Anubhav Dixit", enrollment: "CSJMA19001303094" },
+{ name: "Yashita Verma", enrollment: "CSJM24000001297" },
+{ name: "SUYASH", enrollment: "CSJMA24000003884" },
+{ name: "Dipali Verma", enrollment: "CSJMA23000000542" },
+{ name: "Ayan Ansari", enrollment: "CSJMA23000000528" },
+{ name: "Anurag Dwivedi", enrollment: "CSJMA23000000501" },
+{ name: "Pooja Prajapati", enrollment: "24000001164" },
+{ name: "Prabhjot Kaur", enrollment: "CSJMA24000001169" },
+{ name: "Neeraj Kumar", enrollment: "CSJMA24000001151" },
+{ name: "Tanush Srivastava", enrollment: "CSJMA21000167145" },
+{ name: "Krishna Kushwaha", enrollment: "CSJMA24000001131" },
+{ name: "Richa Singh", enrollment: "CSJMA20001302745" },
+{ name: "Prachi Singh", enrollment: "CSJMA24000001171" },
+{ name: "Ayushi Singh", enrollment: "CSJMA24000003889" },
+{ name: "Jaya Soni", enrollment: "CSJMA24000003888" },
+{ name: "Khushi Srivastava", enrollment: "CSJMU240000023" },
+{ name: "Aviral Katheria", enrollment: "CSJMA24000001067" },
+{ name: "Nitin Kumar", enrollment: "CSJMU24000003883" },
+{ name: "Anshika Gupta", enrollment: "CSJMU24000001044" },
+{ name: "Anshika Pal", enrollment: "CSJMA24000001045" },
+{ name: "Isha", enrollment: "CSJMA24000001106" },
+{ name: "Ayushi Katiyar", enrollment: "CSJMA24000001076" },
+{ name: "Isha", enrollment: "CSJMA24000001107" },
+{ name: "Avni Tiwari", enrollment: "CSJMA24000001068" },
+{ name: "Ayushi Devi", enrollment: "CSJMA24000001075" },
+{ name: "Kartikay Dubey", enrollment: "CSJMA24000001116" },
+{ name: "Vanshika Bajpai", enrollment: "CSJMA24000001280" },
+{ name: "Yashika Mishra", enrollment: "CSJMU24000001296" },
+{ name: "Khushi Gupta", enrollment: "CSJMA24000001120" },
+{ name: "Komal Yadav", enrollment: "CSJMA24000001126" },
+{ name: "Vansh Gupta", enrollment: "CSJMA24000003989" },
+{ name: "Vishal Kumar", enrollment: "CSJMA24000003879" },
+{ name: "Kirti Gupta", enrollment: "CSJMA24000001125" },
+{ name: "Pawani Tripathi", enrollment: "CSJMA24000003907" },
+{ name: "Mohammad Shanwaj", enrollment: "CSJMA24000001143" },
+{ name: "Pragati Tiwari", enrollment: "CSJMA24000001174" },
+{ name: "Mohit Sharma", enrollment: "CSJMA24000003991" },
+{ name: "Anu", enrollment: "CSJMA23000000499" },
+{ name: "Pinky Kamal", enrollment: "CSJMU240000001639" },
+{ name: "Arpit Kumar", enrollment: "CSJMA24000001061" },
+{ name: "Mohit Sharma", enrollment: "CSJMA24000001144" },
+{ name: "Meenu", enrollment: "CSJMA24000001139" },
+{ name: "Ayush Trivedi", enrollment: "CSJMA24000001073" },
+{ name: "Prachi Savita", enrollment: "CSJMA24000001173" },
+{ name: "Pinky Kamal", enrollment: "CSJMA24000001639" },
+{ name: "Simran Kumari", enrollment: "CSJMA24000001244" },
+{ name: "Keshav Dixit", enrollment: "CSJMA24000001118" },
+{ name: "Naman Mishra", enrollment: "CSJMA24000001148" },
+{ name: "Vaidehi Shukla", enrollment: "CSJMA24000001275" },
+{ name: "Neeraj Sharma", enrollment: "CSJMA24116000187" },
+{ name: "Anurag Tiwari", enrollment: "CSJMA24000001059" },
+{ name: "Tuba Mariyam", enrollment: "CSJMA24000003874" },
+{ name: "Ankit Rajput", enrollment: "CSJMA23000000483" },
+{ name: "Yogendra Kumar", enrollment: "CSJMA24000003876" },
+{ name: "Yashi Bajpai", enrollment: "CSJMA24000003896" },
+{ name: "Palak Chaudhary", enrollment: "CSJMA24000003878" },
+{ name: "Aman Pandey", enrollment: "CSJMA23000000467" },
+{ name: "Devisha Patel", enrollment: "CSJMA24000003871" },
+{ name: "Imran", enrollment: "CSJMA24000001105" },
+{ name: "Huma Parveen", enrollment: "CSJMA24000001103" },
+{ name: "Arpita Shukla", enrollment: "CSJMU23000000514" },
+{ name: "Mahima Trivedi", enrollment: "CSJMA24000001136" },
+{ name: "Mahima Pal", enrollment: "CSJMA24000001137" },
+{ name: "Poornima Chaturvedi", enrollmentNo: "CSJMA24000001166" },
+{ name: "Naitik Kumar", enrollmentNo: "CSJMA24000001147" },
+{ name: "Khushi Sharma", enrollmentNo: "CSJMA24000001119" },
+{ name: "Nancy Yadav", enrollmentNo: "CSJMA24000001149" },
+{ name: "Monalika Gautam", enrollmentNo: "CSJMA24000001146" },
+{ name: "Yashika Mishra", enrollmentNo: "CSJMA24000001296" },
+{ name: "Harsh Kumar", enrollmentNo: "CSJMA23000000553" }
+];
 
-  function openPopup() {
-    document.getElementById("popup").style.display = "block";
-    document.getElementById("overlay").style.display = "block";
-  }
 
-  function closePopup() {
-    document.getElementById("popup").style.display = "none";
-    document.getElementById("overlay").style.display = "none";
-  }
+function openPopup() {
+document.getElementById("popup").style.display = "block";
+document.getElementById("overlay").style.display = "block";
+}
 
-  function checkDetails() {
-    const nameInput = document.getElementById("nameInput").value.trim().toLowerCase();
-    const enrollmentInput = document.getElementById("enrollmentInput").value.trim().toLowerCase();
-    const result = document.getElementById("result");
+function closePopup() {
+document.getElementById("popup").style.display = "none";
+document.getElementById("overlay").style.display = "none";
+}
 
-    // Check if the student data exists
-    const found = studentData.find(student => 
-      student.name.toLowerCase().trim() === nameInput && student.enrollment.toLowerCase().trim() === enrollmentInput
-    );
+function checkDetails() {
+const nameInput = document.getElementById("nameInput").value.trim().toLowerCase();
+const enrollmentInput = document.getElementById("enrollmentInput").value.trim().toLowerCase();
+const result = document.getElementById("result");
 
-    if (found) {
-      window.open("https://www.google.com", "_blank");
-    } else {
-      alert("Invalid name or enrollment number!");
-    }
-  }
+// Check if the student data exists
+const found = studentData.find(student => 
+student.name.toLowerCase().trim() === nameInput && student.enrollment.toLowerCase().trim() === enrollmentInput
+);
+
+if (found) {
+window.open("https://www.google.com", "_blank");
+} else {
+alert("Invalid name or enrollment number!");
+}
+}
 </script>
 
-  
+
 
 
 </div>
@@ -304,61 +312,61 @@
 
 <script>
 const users = [
-  { name: "Nikhil Agarwal", enrollment: "csjma23000000607" },
-  { name: "Abhishek Pandey", enrollment: "Csjma23000000446" },
-  { name: "Mohd Danish Ansari", enrollment: "CSJMA23000000594" },
-  { name: "Abhishek Nishad", enrollment: "CSJMA23000000443" },
-  { name: "Aviral Gupta", enrollment: "CSJMA23000000526" },
-  { name: "Karishma Kanaujia", enrollment: "CSJMA23000000567" },
-  { name: "Sahil Sharma", enrollment: "CSJMA21000010593" },
-  { name: "Paras Shukla", enrollment: "CSJMA22000022707" },
-  { name: "Shaina", enrollment: "CSJMA20001302563" },
-  { name: "Vikash Yadav", enrollment: "CSJMA23000000748" },
-  { name: "Anamika Sharma", enrollment: "CSJMA23000000475" },
-  { name: "Riya Bharti", enrollment: "CSJMA21001948982" },
-  { name: "Anuneet Gupta", enrollment: "CSJMA2400001055" },
-  { name: "Abhishek", enrollment: "CSJMA22000020942" },
-  { name: "Roshni Yadav", enrollment: "CSJMA20001303037" },
-  { name: "Suryansh Tripathi", enrollment: "CSJMA24116000308" },
-  { name: "Sanya Sharma", enrollment: "CSJMA24000001220" },
-  { name: "Yash Sharma", enrollment: "CSJMA23000000760" },
-  { name: "Shivam Soni", enrollment: "CSJMA23000000681" },
-  { name: "Avanish Dixit", enrollment: "CSJMA23000000525" },
-  { name: "Abhishek Nishad", enrollment: "CSJMA23000000444" },
-  { name: "Sudhanshu Yadav", enrollment: "CSJMA23000000710" },
-  { name: "Nandini Verma", enrollment: "Csjma21001948589" },
-  { name: "Ayush Uttam", enrollment: "CSJMA24000001074" },
-  { name: "Aditya Kumar", enrollment: "CSJMA24000001011" },
-  { name: "Kamakshi Tiwari", enrollment: "Csjma24000001111" },
-  { name: "Riya Katiyar", enrollment: "Csjma20001303036" }
+{ name: "Nikhil Agarwal", enrollment: "csjma23000000607" },
+{ name: "Abhishek Pandey", enrollment: "Csjma23000000446" },
+{ name: "Mohd Danish Ansari", enrollment: "CSJMA23000000594" },
+{ name: "Abhishek Nishad", enrollment: "CSJMA23000000443" },
+{ name: "Aviral Gupta", enrollment: "CSJMA23000000526" },
+{ name: "Karishma Kanaujia", enrollment: "CSJMA23000000567" },
+{ name: "Sahil Sharma", enrollment: "CSJMA21000010593" },
+{ name: "Paras Shukla", enrollment: "CSJMA22000022707" },
+{ name: "Shaina", enrollment: "CSJMA20001302563" },
+{ name: "Vikash Yadav", enrollment: "CSJMA23000000748" },
+{ name: "Anamika Sharma", enrollment: "CSJMA23000000475" },
+{ name: "Riya Bharti", enrollment: "CSJMA21001948982" },
+{ name: "Anuneet Gupta", enrollment: "CSJMA2400001055" },
+{ name: "Abhishek", enrollment: "CSJMA22000020942" },
+{ name: "Roshni Yadav", enrollment: "CSJMA20001303037" },
+{ name: "Suryansh Tripathi", enrollment: "CSJMA24116000308" },
+{ name: "Sanya Sharma", enrollment: "CSJMA24000001220" },
+{ name: "Yash Sharma", enrollment: "CSJMA23000000760" },
+{ name: "Shivam Soni", enrollment: "CSJMA23000000681" },
+{ name: "Avanish Dixit", enrollment: "CSJMA23000000525" },
+{ name: "Abhishek Nishad", enrollment: "CSJMA23000000444" },
+{ name: "Sudhanshu Yadav", enrollment: "CSJMA23000000710" },
+{ name: "Nandini Verma", enrollment: "Csjma21001948589" },
+{ name: "Ayush Uttam", enrollment: "CSJMA24000001074" },
+{ name: "Aditya Kumar", enrollment: "CSJMA24000001011" },
+{ name: "Kamakshi Tiwari", enrollment: "Csjma24000001111" },
+{ name: "Riya Katiyar", enrollment: "Csjma20001303036" }
 ];
 
 function openPopup_2() {
-  document.getElementById("popup_2").style.display = "block";
-  document.getElementById("overlay_2").style.display = "block";
+document.getElementById("popup_2").style.display = "block";
+document.getElementById("overlay_2").style.display = "block";
 }
 
 function closePopup_2() {
-  document.getElementById("popup_2").style.display = "none";
-  document.getElementById("overlay_2").style.display = "none";
+document.getElementById("popup_2").style.display = "none";
+document.getElementById("overlay_2").style.display = "none";
 }
 
 function submitEnrollment_2() {
-  const nameInput = document.getElementById("nameInput_2").value.trim().toLowerCase();
-  const enrollmentInput = document.getElementById("enrollmentInput_2").value.trim().toLowerCase();
-  const result = document.getElementById("result_2");
+const nameInput = document.getElementById("nameInput_2").value.trim().toLowerCase();
+const enrollmentInput = document.getElementById("enrollmentInput_2").value.trim().toLowerCase();
+const result = document.getElementById("result_2");
 
-  // Find the user by matching both name and enrollment number
-  const foundUser = users.find(user => 
-    user.name.toLowerCase().trim() === nameInput && user.enrollment.toLowerCase().trim() === enrollmentInput
-  );
+// Find the user by matching both name and enrollment number
+const foundUser = users.find(user => 
+user.name.toLowerCase().trim() === nameInput && user.enrollment.toLowerCase().trim() === enrollmentInput
+);
 
-  if (foundUser) {
-    // Open the desired URL if user is found
-    window.open("https://docs.google.com/forms/d/e/1FAIpQLSfxcAMwa-3Vlf3hJy8veJDWhth-LIl9DLvfoE2it0cSMxGy_A/viewform?usp=sharing", "_blank");
-  } else {
-    alert("Invalid name or enrollment number!");
-  }
+if (foundUser) {
+// Open the desired URL if user is found
+window.open("https://docs.google.com/forms/d/e/1FAIpQLSfxcAMwa-3Vlf3hJy8veJDWhth-LIl9DLvfoE2it0cSMxGy_A/viewform?usp=sharing", "_blank");
+} else {
+alert("Invalid name or enrollment number!");
+}
 }
 </script>
 
