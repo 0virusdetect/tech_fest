@@ -333,29 +333,32 @@ const users = [
   { name: "Riya Katiyar", enrollment: "Csjma20001303036" }
 ];
 
-
 function openPopup_2() {
-document.getElementById("popup_2").style.display = "block";
-document.getElementById("overlay_2").style.display = "block";
+  document.getElementById("popup_2").style.display = "block";
+  document.getElementById("overlay_2").style.display = "block";
 }
 
 function closePopup_2() {
-document.getElementById("popup_2").style.display = "none";
-document.getElementById("overlay_2").style.display = "none";
+  document.getElementById("popup_2").style.display = "none";
+  document.getElementById("overlay_2").style.display = "none";
 }
 
 function submitEnrollment_2() {
-const nameInput = document.getElementById("nameInput_2").value.toLowerCase();
-const enrollmentInput = document.getElementById("enrollmentInput_2").value.toLowerCase();
-const result = document.getElementById("result_2");
+  const nameInput = document.getElementById("nameInput_2").value.trim().toLowerCase();
+  const enrollmentInput = document.getElementById("enrollmentInput_2").value.trim().toLowerCase();
+  const result = document.getElementById("result_2");
 
-const foundUser = users.find(user => user.name === nameInput && user.enrollment === enrollmentInput);
+  // Find the user by matching both name and enrollment number
+  const foundUser = users.find(user => 
+    user.name.toLowerCase().trim() === nameInput && user.enrollment.toLowerCase().trim() === enrollmentInput
+  );
 
-if (foundUser) {
-window.open("https://www.google.com", "_blank");
-} else {
-alert("Invalid name or enrollment number!");
-}
+  if (foundUser) {
+    // Open the desired URL if user is found
+    window.open("https://www.google.com", "_blank");
+  } else {
+    alert("Invalid name or enrollment number!");
+  }
 }
 </script>
 
